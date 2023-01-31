@@ -1,0 +1,14 @@
+C:\Users\Anton\source\repos\Project Trinity\bin\Debug\Project Trinity.exe.config
+C:\Users\Anton\source\repos\Project Trinity\bin\Debug\Project Trinity.exe
+C:\Users\Anton\source\repos\Project Trinity\bin\Debug\Project Trinity.pdb
+C:\Users\Anton\source\repos\Project Trinity\bin\Debug\Memory.dll
+C:\Users\Anton\source\repos\Project Trinity\bin\Debug\Memory.xml
+C:\Users\Anton\source\repos\Project Trinity\obj\Debug\Project Trinity.csproj.AssemblyReference.cache
+C:\Users\Anton\source\repos\Project Trinity\obj\Debug\Project Trinity.csproj.SuggestedBindingRedirects.cache
+C:\Users\Anton\source\repos\Project Trinity\obj\Debug\Project_Trinity.GUI.resources
+C:\Users\Anton\source\repos\Project Trinity\obj\Debug\Project_Trinity.Properties.Resources.resources
+C:\Users\Anton\source\repos\Project Trinity\obj\Debug\Project Trinity.csproj.GenerateResource.cache
+C:\Users\Anton\source\repos\Project Trinity\obj\Debug\Project Trinity.csproj.CoreCompileInputs.cache
+C:\Users\Anton\source\repos\Project Trinity\obj\Debug\Project Trinity.csproj.CopyComplete
+C:\Users\Anton\source\repos\Project Trinity\obj\Debug\Project Trinity.exe
+C:\Users\Anton\source\repos\Project Trinity\obj\Debug\Project Trinity.pdb
