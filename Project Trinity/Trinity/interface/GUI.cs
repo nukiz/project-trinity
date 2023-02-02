@@ -3,8 +3,9 @@ using Project_Trinity.Trinity.feature.player;
 using System;
 using System.Drawing;
 using System.Windows.Forms;
-using Project_Trinity.Trinity.feature.player;
 using System.Threading;
+using Project_Trinity.Trinity.feature.trainer;
+using System.Diagnostics;
 
 namespace Project_Trinity
 {
@@ -13,9 +14,11 @@ namespace Project_Trinity
     public partial class GUI : Form
     {
         private bool mouseDown; // booleans for dragging the window
-        private Point lastLocation;
-        Boolean toggled = false;
-        Mem m = new Mem();
+        private Point lastLocation; // booleans for dragging the window
+        Boolean toggled = false; // custom checkboxes global boolean :^)
+        Mem m = new Mem(); // Memory.dll
+
+        
 
         public GUI()
         {
@@ -32,13 +35,12 @@ namespace Project_Trinity
             GameSpeedVal.Text = Convert.ToString(GameSpeedModifier.Value);
         }
 
-
         private void AttachTimer_Tick(object sender, EventArgs e)
         {
             if (!m.OpenProcess("Growtopia.exe"))
             {
                 StatusLabel.Text = "Waiting...";
-                StatusLabel.ForeColor = Color.FromArgb(192, 192, 0);
+                StatusLabel.ForeColor = Color.FromArgb(192, 192, 0); // it just checks if its not open or not, if you don't know what this does then dont develop a trainer :P
                 m.OpenProcess("Growtopia.exe");
 
             }
@@ -46,8 +48,22 @@ namespace Project_Trinity
             if (m.OpenProcess("Growtopia.exe"))
             {
                 StatusLabel.Text = "Active";
-                StatusLabel.ForeColor = Color.Lime;
+                StatusLabel.ForeColor = Color.Lime; // and we are open
                 AttachTimer.Stop();
+                CheckExistProcessTimer.Start(); // might make this a setting (?)
+            }
+        }
+
+        private void CheckExistProcessTimer_Tick(object sender, EventArgs e)
+        {
+            Process[] gtProcess = Process.GetProcessesByName("Growtopia");
+
+            if (gtProcess.Length < 0)
+            {
+                StatusLabel.Text = "GT Killed!";
+                StatusLabel.ForeColor = Color.Red; // btw this is kinda delayed for a reason, so it doesn't take up that much CPU%
+                Thread.Sleep(200); // add a wait for some reason :DDDD
+                CheckExistProcessTimer.Stop();
             }
         }
 
@@ -67,7 +83,7 @@ namespace Project_Trinity
             RendererConnector.BackColor = Color.FromArgb(21, 21, 21);                 // resetting the other connectors to their original back colors :^)
             ProxyConnector.BackColor = Color.FromArgb(21, 21, 21);
             UtilitiesConnector.BackColor = Color.FromArgb(21, 21, 21);
-
+            SettingConnector.BackColor = Color.FromArgb(21, 21, 21);
 
         }
 
@@ -77,7 +93,7 @@ namespace Project_Trinity
             FeatureConnector.BackColor = Color.FromArgb(21, 21, 21);                 // resetting the other connectors to their original back colors :^)
             ProxyConnector.BackColor = Color.FromArgb(21, 21, 21);
             UtilitiesConnector.BackColor = Color.FromArgb(21, 21, 21);
-
+            SettingConnector.BackColor = Color.FromArgb(21, 21, 21);
 
         }
 
@@ -87,7 +103,7 @@ namespace Project_Trinity
             FeatureConnector.BackColor = Color.FromArgb(21, 21, 21);                 // resetting the other connectors to their original back colors :^)
             RendererConnector.BackColor = Color.FromArgb(21, 21, 21);
             UtilitiesConnector.BackColor = Color.FromArgb(21, 21, 21);
-
+            SettingConnector.BackColor = Color.FromArgb(21, 21, 21);
 
         }
 
@@ -97,7 +113,7 @@ namespace Project_Trinity
             FeatureConnector.BackColor = Color.FromArgb(21, 21, 21);                 // resetting the other connectors to their original back colors :^)
             ProxyConnector.BackColor = Color.FromArgb(21, 21, 21);
             RendererConnector.BackColor = Color.FromArgb(21, 21, 21);
-
+            SettingConnector.BackColor = Color.FromArgb(21, 21, 21);
 
         }
 
@@ -219,13 +235,7 @@ namespace Project_Trinity
 
         private void label4_MouseMove(object sender, MouseEventArgs e)
         {
-            if (mouseDown)
-            {
-                this.Location = new Point(
-                    (this.Location.X - lastLocation.X) + e.X, (this.Location.Y - lastLocation.Y) + e.Y);
-
-                this.Update();
-            }
+            
         }
 
         private void label4_MouseUp(object sender, MouseEventArgs e)
@@ -239,12 +249,12 @@ namespace Project_Trinity
             if (toggled)
             {
                 CustomCheckbox3.BackColor = Color.FromArgb(65, 29, 105);
-                ModFly.onEnable();
+                ModZoom.onEnable();
             }
             else
             {
                 CustomCheckbox3.BackColor = Color.FromArgb(21, 21, 21);
-                ModFly.onDisable();
+                ModZoom.onDisable();
             }
         }
 
@@ -531,7 +541,7 @@ namespace Project_Trinity
             else
             {
                 CustomCheckbox22.BackColor = Color.FromArgb(21, 21, 21);
-                ModFly.onDisable();
+                GameSpeed.onDisable();
             }
         }
 
@@ -541,12 +551,12 @@ namespace Project_Trinity
             if (toggled)
             {
                 CustomCheckbox23.BackColor = Color.FromArgb(65, 29, 105);
-                ModFly.onEnable();
+                TrinityDebug.onEnable();
             }
             else
             {
                 CustomCheckbox23.BackColor = Color.FromArgb(21, 21, 21);
-                ModFly.onDisable();
+                TrinityDebug.onDisable();
             }
         }
 
@@ -563,6 +573,15 @@ namespace Project_Trinity
                 AntiBanCheck.BackColor = Color.FromArgb(21, 21, 21);
                 Antiban.onDisable();
             }
+        }
+
+        private void SettingsButton_Click(object sender, EventArgs e)
+        {
+            FeatureConnector.BackColor = Color.FromArgb(21,21,21);                  // and making the one we have here actually connect :^)
+            RendererConnector.BackColor = Color.FromArgb(21, 21, 21);                 // resetting the other connectors to their original back colors :^)
+            ProxyConnector.BackColor = Color.FromArgb(21, 21, 21);
+            UtilitiesConnector.BackColor = Color.FromArgb(21, 21, 21);
+            SettingConnector.BackColor = Color.FromArgb(18,18,18);
         }
     }
 }

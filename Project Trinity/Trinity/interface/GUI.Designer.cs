@@ -38,6 +38,8 @@
             this.button1 = new System.Windows.Forms.Button();
             this.SettingsButton = new System.Windows.Forms.Button();
             this.MainTab = new System.Windows.Forms.Panel();
+            this.label10 = new System.Windows.Forms.Label();
+            this.AntiBanCheck = new System.Windows.Forms.Panel();
             this.GameSpeedVal = new System.Windows.Forms.Label();
             this.GameSpeedModifier = new System.Windows.Forms.TrackBar();
             this.label14 = new System.Windows.Forms.Label();
@@ -99,8 +101,8 @@
             this.UtilitiesConnector = new System.Windows.Forms.Panel();
             this.TimeLabel = new System.Windows.Forms.Label();
             this.ClockTimer = new System.Windows.Forms.Timer(this.components);
-            this.label10 = new System.Windows.Forms.Label();
-            this.AntiBanCheck = new System.Windows.Forms.Panel();
+            this.CheckExistProcessTimer = new System.Windows.Forms.Timer(this.components);
+            this.SettingConnector = new System.Windows.Forms.Panel();
             this.MainTab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.GameSpeedModifier)).BeginInit();
             this.SuspendLayout();
@@ -214,6 +216,7 @@
             this.SettingsButton.TabIndex = 7;
             this.SettingsButton.Text = "Settings";
             this.SettingsButton.UseVisualStyleBackColor = false;
+            this.SettingsButton.Click += new System.EventHandler(this.SettingsButton_Click);
             // 
             // MainTab
             // 
@@ -276,6 +279,26 @@
             this.MainTab.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel2_MouseDown);
             this.MainTab.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel2_MouseMove);
             this.MainTab.MouseUp += new System.Windows.Forms.MouseEventHandler(this.panel2_MouseUp);
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Dosis", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(29)))), ((int)(((byte)(105)))));
+            this.label10.Location = new System.Drawing.Point(369, 220);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(115, 25);
+            this.label10.TabIndex = 51;
+            this.label10.Text = "Prevent bans";
+            // 
+            // AntiBanCheck
+            // 
+            this.AntiBanCheck.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(21)))), ((int)(((byte)(21)))));
+            this.AntiBanCheck.Location = new System.Drawing.Point(341, 221);
+            this.AntiBanCheck.Name = "AntiBanCheck";
+            this.AntiBanCheck.Size = new System.Drawing.Size(24, 24);
+            this.AntiBanCheck.TabIndex = 50;
+            this.AntiBanCheck.Click += new System.EventHandler(this.AntiBanCheck_Click);
             // 
             // GameSpeedVal
             // 
@@ -981,25 +1004,18 @@
             this.ClockTimer.Interval = 1000;
             this.ClockTimer.Tick += new System.EventHandler(this.ClockTimer_Tick);
             // 
-            // label10
+            // CheckExistProcessTimer
             // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Dosis", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(29)))), ((int)(((byte)(105)))));
-            this.label10.Location = new System.Drawing.Point(369, 220);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(115, 25);
-            this.label10.TabIndex = 51;
-            this.label10.Text = "Prevent bans";
+            this.CheckExistProcessTimer.Interval = 1000;
+            this.CheckExistProcessTimer.Tick += new System.EventHandler(this.CheckExistProcessTimer_Tick);
             // 
-            // AntiBanCheck
+            // SettingConnector
             // 
-            this.AntiBanCheck.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(21)))), ((int)(((byte)(21)))));
-            this.AntiBanCheck.Location = new System.Drawing.Point(341, 221);
-            this.AntiBanCheck.Name = "AntiBanCheck";
-            this.AntiBanCheck.Size = new System.Drawing.Size(24, 24);
-            this.AntiBanCheck.TabIndex = 50;
-            this.AntiBanCheck.Click += new System.EventHandler(this.AntiBanCheck_Click);
+            this.SettingConnector.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(21)))), ((int)(((byte)(21)))));
+            this.SettingConnector.Location = new System.Drawing.Point(134, 299);
+            this.SettingConnector.Name = "SettingConnector";
+            this.SettingConnector.Size = new System.Drawing.Size(22, 38);
+            this.SettingConnector.TabIndex = 20;
             // 
             // GUI
             // 
@@ -1027,6 +1043,7 @@
             this.Controls.Add(this.RendererConnector);
             this.Controls.Add(this.ProxyConnector);
             this.Controls.Add(this.UtilitiesConnector);
+            this.Controls.Add(this.SettingConnector);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "GUI";
             this.Text = "Project Trinity";
@@ -1116,6 +1133,8 @@
         private System.Windows.Forms.Panel CustomCheckbox3;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Panel AntiBanCheck;
+        private System.Windows.Forms.Timer CheckExistProcessTimer;
+        private System.Windows.Forms.Panel SettingConnector;
     }
 }
 
