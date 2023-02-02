@@ -14,7 +14,7 @@
     <Deterministic>true</Deterministic>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
+    <PlatformTarget>x64</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -22,6 +22,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -52,11 +53,35 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Trinity\feature\player\Antiban.cs" />
+    <Compile Include="Trinity\feature\player\Moonwalk.cs" />
+    <Compile Include="Trinity\feature\player\GameSpeed.cs" />
+    <Compile Include="Trinity\feature\player\PickupSpeed.cs" />
+    <Compile Include="Trinity\feature\player\DanceMoves.cs" />
+    <Compile Include="Trinity\feature\player\Airwalk.cs" />
+    <Compile Include="Trinity\feature\player\GiveawayMode.cs" />
+    <Compile Include="Trinity\feature\player\AntiSlide.cs" />
+    <Compile Include="Trinity\feature\player\DevMode.cs" />
+    <Compile Include="Trinity\feature\player\ModReach.cs" />
+    <Compile Include="Trinity\feature\player\InfiniteJumps.cs" />
+    <Compile Include="Trinity\feature\player\AntiVelocity.cs" />
+    <Compile Include="Trinity\feature\player\Gravity.cs" />
+    <Compile Include="Trinity\feature\player\Fly.cs" />
+    <Compile Include="Trinity\feature\player\AntiSpikes.cs" />
+    <Compile Include="Trinity\feature\player\PickupRange.cs" />
+    <Compile Include="Trinity\feature\player\Noclip.cs" />
+    <Compile Include="Trinity\feature\player\Growz.cs" />
+    <Compile Include="Trinity\feature\player\AntiRespawn.cs" />
+    <Compile Include="Trinity\feature\player\Ghost.cs" />
+    <Compile Include="Trinity\feature\player\ModZoom.cs" />
+    <Compile Include="Trinity\feature\render\container\Transparency.cs" />
+    <Compile Include="Trinity\feature\render\model\LegendaryName.cs" />
+    <Compile Include="Trinity\feature\render\model\Legendbot.cs" />
+    <Compile Include="Trinity\feature\render\world\Rainbow.cs" />
+    <Compile Include="Trinity\feature\trainer\Antiban.cs" />
     <Compile Include="Trinity\feature\player\Antibounce.cs" />
     <Compile Include="Trinity\feature\player\ModFly.cs" />
-    <Compile Include="Trinity\feature\render\SkinChanger.cs" />
-    <Compile Include="Trinity\feature\trainer\Debug.cs" />
+    <Compile Include="Trinity\feature\render\model\SkinChanger.cs" />
+    <Compile Include="Trinity\feature\trainer\TrinityDebug.cs" />
     <Compile Include="Trinity\interface\GUI.cs">
       <SubType>Form</SubType>
     </Compile>
